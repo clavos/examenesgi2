@@ -1,7 +1,8 @@
 web2:
    image: tutum/apache-php
+   container_name: apache-php
    ports:
-     - "9000:80"
+     - "5000:80"
    links:
      - db2
    volumes:
@@ -9,12 +10,22 @@ web2:
 
 db2:
   image: mariadb
+  container_name: mariadb
   volumes:
     - ./mysql:/var/lib/mysql
   environment:
     MYSQL_ROOT_PASSWORD: root
     MYSQL_USER: root
     MYSQL_PASSWORD: root
-    MYSQL_DATABASE: database2
+    MYSQL_DATABASE: database
+    DB_ADMIN_PASS: pass
   ports:
-    - "4000:3306"
+    - "6000:3306"
+
+phpmyadmin2:
+  image: phpmyadmin/phpmyadmin
+  container_name: admin1
+  links: 
+    - db2
+  ports: 
+    - "7000:80"
