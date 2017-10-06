@@ -4,11 +4,11 @@ web2:
    ports:
      - "5000:80"
    links:
-     - db2
+     - dbb
    volumes:
      - ./app:/app
 
-db2:
+dbb:
   image: mariadb
   container_name: mariadb2
   volumes:
@@ -26,6 +26,6 @@ phpmyadmin2:
   image: phpmyadmin/phpmyadmin
   container_name: admin2
   links: 
-    - db2
+    - dbb
   ports: 
     - "7000:80"
