@@ -10,7 +10,7 @@ web2:
 
 db2:
   image: mariadb
-  container_name: mariadb
+  container_name: mariadb2
   volumes:
     - ./mysql:/var/lib/mysql
   environment:
