@@ -1,6 +1,6 @@
 web2:
    image: tutum/apache-php
-   container_name: apache-php
+   container_name: apache-php2
    ports:
      - "5000:80"
    links:
