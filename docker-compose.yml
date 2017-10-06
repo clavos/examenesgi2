@@ -1,7 +1,5 @@
 web2:
    image: tutum/apache-php
-   environment:
-     - ALLOW_OVERRIDE=true
    ports:
      - "9000:80"
    links:
@@ -11,7 +9,6 @@ web2:
 
 db2:
   image: mariadb
-  restart: always
   volumes:
     - ./mysql:/var/lib/mysql
   environment:
