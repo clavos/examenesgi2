@@ -1,0 +1,23 @@
+web2:
+   image: tutum/apache-php
+   environment:
+     - ALLOW_OVERRIDE=true
+   ports:
+     - "9000:80"
+   links:
+     - db2
+   volumes:
+     - ./app:/app
+
+db2:
+  image: mariadb
+  restart: always
+  volumes:
+    - ./mysql:/var/lib/mysql
+  environment:
+    MYSQL_ROOT_PASSWORD: root
+    MYSQL_USER: root
+    MYSQL_PASSWORD: root
+    MYSQL_DATABASE: database2
+  ports:
+    - "4000:3306"
