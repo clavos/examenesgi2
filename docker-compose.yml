@@ -24,7 +24,7 @@ db2:
 
 phpmyadmin2:
   image: phpmyadmin/phpmyadmin
-  container_name: admin1
+  container_name: admin2
   links: 
     - db2
   ports: 
